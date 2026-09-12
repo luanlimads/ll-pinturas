@@ -178,18 +178,79 @@
         </section>
 
         <!-- ===== BANNER DESTAQUE ===== -->
-        <section class="banner-destaque" data-animate="fade-up" style="position: relative; overflow: hidden; min-height: 500px; display: flex; align-items: stretch;">
+        <style>
+            .banner-destaque {
+                position: relative; 
+                overflow: hidden; 
+                min-height: 500px; 
+                display: flex; 
+                align-items: stretch;
+                background: #0f1923;
+            }
+            .bd-img {
+                position: absolute; 
+                top: 0; 
+                right: 0; 
+                width: 60%; 
+                height: 100%; 
+                background: url('img/banner-destaque-limpo.jpg') no-repeat right center/cover;
+            }
+            .bd-grad {
+                position: absolute; 
+                top: 0; 
+                left: 0; 
+                width: 100%; 
+                height: 100%; 
+                background: linear-gradient(90deg, #0f1923 0%, #0f1923 35%, rgba(15,25,35,0.85) 55%, rgba(15,25,35,0.1) 80%, rgba(15,25,35,0) 100%); 
+                z-index: 1;
+            }
+            .bd-container {
+                position: relative; 
+                z-index: 2; 
+                display: flex; 
+                align-items: center; 
+                padding-top: 70px; 
+                padding-bottom: 70px;
+                width: 100%;
+            }
             
-            <!-- Fundo escuro base -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #0f1923;"></div>
+            /* Ajustes para Mobile / Tablet */
+            @media (max-width: 991px) {
+                .banner-destaque {
+                    min-height: 700px;
+                }
+                .bd-img {
+                    width: 100%; 
+                    height: 55%; 
+                    background-position: top center;
+                }
+                .bd-grad {
+                    background: linear-gradient(180deg, rgba(15,25,35,0) 0%, rgba(15,25,35,0.7) 40%, #0f1923 55%, #0f1923 100%);
+                }
+                .bd-container {
+                    align-items: flex-end;
+                    padding-top: 320px;
+                }
+            }
+            @media (max-width: 576px) {
+                .banner-destaque {
+                    min-height: 750px;
+                }
+                .bd-container {
+                    padding-top: 280px;
+                }
+            }
+        </style>
+        
+        <section class="banner-destaque" data-animate="fade-up">
             
-            <!-- Imagem do profissional posicionada à direita -->
-            <div style="position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: url('img/banner-destaque.jpg') no-repeat right center/cover;"></div>
+            <!-- Imagem do profissional -->
+            <div class="bd-img"></div>
             
-            <!-- Gradiente que cobre da esquerda para a direita, revelando o profissional -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, #0f1923 0%, #0f1923 35%, rgba(15,25,35,0.85) 55%, rgba(15,25,35,0.4) 75%, rgba(15,25,35,0.1) 100%); z-index: 1;"></div>
+            <!-- Gradiente overlay -->
+            <div class="bd-grad"></div>
             
-            <div class="container" style="position: relative; z-index: 2; display: flex; align-items: center; padding-top: 70px; padding-bottom: 70px;">
+            <div class="container bd-container">
                 
                 <!-- Conteúdo textual -->
                 <div style="max-width: 550px;" data-animate="fade-up">
